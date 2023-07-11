@@ -4,6 +4,8 @@ local opts = { silent = true }
 
 vim.keymap.set("n", "<leader><leader>", ":Ex<CR>", opts)
 
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+
 vim.keymap.set("n", "<c-k>", ":wincmd k<CR>", opts)
 vim.keymap.set("n", "<c-j>", ":wincmd j<CR>", opts)
 vim.keymap.set("n", "<c-h>", ":wincmd h<CR>", opts)

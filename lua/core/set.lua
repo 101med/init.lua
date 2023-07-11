@@ -26,7 +26,8 @@ local options = {
     writebackup = false,
     laststatus = 3,
     listchars = "eol:~,space:.",
-    list = true
+    list = true,
+    splitbelow = true,
 }
 
 for k, v in pairs(options) do

@@ -50,6 +50,15 @@ return require("packer").startup(function(use)
             require("Comment").setup()
         end
     }
+
+    use {
+        "mbbill/undotree",
+        config = function()
+            require("undotree").setup()
+        end
+    }
+
+    use "jose-elias-alvarez/null-ls.nvim"
     if packer_bootstrap then
         require("packer").sync()
     end
