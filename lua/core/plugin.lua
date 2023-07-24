@@ -13,15 +13,19 @@ local packer_bootstrap = ensure_packer()
 
 return require("packer").startup(function(use)
     use "wbthomason/packer.nvim"
+
     use {
         "nvim-telescope/telescope.nvim", tag = "0.1.0",
         requires = { { "nvim-lua/plenary.nvim" } }
     }
+
     use "ellisonleao/gruvbox.nvim"
+
     use {
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate"
     }
+
     use {
         "VonHeikemen/lsp-zero.nvim",
         branch = "v1.x",
@@ -44,6 +48,7 @@ return require("packer").startup(function(use)
             { "rafamadriz/friendly-snippets" },
         }
     }
+
     use {
         "numToStr/Comment.nvim",
         config = function()
@@ -52,13 +57,21 @@ return require("packer").startup(function(use)
     }
 
     use {
-        "mbbill/undotree",
+        "jose-elias-alvarez/null-ls.nvim",
         config = function()
-            require("undotree").setup()
+            require("null-ls").setup({
+                sources = { require("null_ls").builtins.formatting.black }
+            })
         end
     }
 
-    use "jose-elias-alvarez/null-ls.nvim"
+    use {
+        "lewis6991/gitsigns.nvim",
+        config = function()
+            require("gitsigns").setup()
+        end
+    }
+
     if packer_bootstrap then
         require("packer").sync()
     end

@@ -1,6 +1,6 @@
 local options = {
     backup = false,
-    colorcolumn = "80",
+    -- colorcolumn = "80",
     cursorline = true,
     expandtab = true,
     hlsearch = false,
@@ -18,14 +18,14 @@ local options = {
     softtabstop = 4,
     swapfile = false,
     tabstop = 4,
-    --termguicolors = true,
+    termguicolors = true,
     undodir = os.getenv("XDG_DATA_HOME") .. "/nvim/undodir",
     undofile = true,
     updatetime = 60,
     wrap = false,
     writebackup = false,
     laststatus = 3,
-    listchars = "eol:~,space:.",
+    listchars = { eol = "~", space = ".", tab = "  " },
     list = true,
     splitbelow = true,
 }
@@ -33,3 +33,7 @@ local options = {
 for k, v in pairs(options) do
     vim.opt[k] = v
 end
+
+vim.g.netrw_browse_split = 0
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 25

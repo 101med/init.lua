@@ -4,8 +4,6 @@ local opts = { silent = true }
 
 vim.keymap.set("n", "<leader><leader>", ":Ex<CR>", opts)
 
-vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
-
 vim.keymap.set("n", "<c-k>", ":wincmd k<CR>", opts)
 vim.keymap.set("n", "<c-j>", ":wincmd j<CR>", opts)
 vim.keymap.set("n", "<c-h>", ":wincmd h<CR>", opts)
@@ -17,17 +15,11 @@ vim.keymap.set("n", "<leader>d", ":bd!<CR>")
 
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
 
-vim.keymap.set("x", "<leader>p", [["_dP]])
-
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
-
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
-
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", opts)
+vim.keymap.set("n", "<leader>pr", ":lua vim.lsp.buf.format()<CR> | :w | python % <CR>", opts)
+vim.keymap.set("n", "<leader>pt", ":lua vim.lsp.buf.format()<CR> | :w | :split | :term python % <CR> | A", opts)
 
-vim.keymap.set("n", "<leader>so", function()
-    vim.cmd("so")
-end)
+vim.keymap.set("n", "<leader>x", ":w | :!chmod +x %<CR>", opts)
+
+vim.keymap.set("n", "<leader>so", ":so<CR>")
