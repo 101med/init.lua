@@ -18,16 +18,18 @@ local options = {
     softtabstop = 4,
     swapfile = false,
     tabstop = 4,
-    termguicolors = true,
+    termguicolors = false,
     undodir = os.getenv("XDG_DATA_HOME") .. "/nvim/undodir",
     undofile = true,
     updatetime = 60,
     wrap = false,
     writebackup = false,
     laststatus = 3,
-    listchars = { eol = "~", space = ".", tab = "  " },
-    list = true,
+    --listchars = { eol = "~", space = ".", tab = "  " },
+    --list = true,
     splitbelow = true,
+    splitright = false,
+    clipboard = "unnamedplus",
 }
 
 for k, v in pairs(options) do

@@ -5,11 +5,11 @@ require("gruvbox").setup({
 		operators = false,
 		folds = false,
 	},
-	contrast = "hard",
+	-- contrast = "soft",
 	overrides = {
 		Normal = { bg = "none" },
 	}
 })
 
-vim.o.background = "dark"
+-- vim.o.background = "dark"
 vim.cmd [[colorscheme gruvbox]]

@@ -19,12 +19,14 @@ return require("packer").startup(function(use)
         requires = { { "nvim-lua/plenary.nvim" } }
     }
 
-    use "ellisonleao/gruvbox.nvim"
-
     use {
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate"
     }
+
+    use "nvim-treesitter/nvim-treesitter-context"
+
+    use "ellisonleao/gruvbox.nvim"
 
     use {
         "VonHeikemen/lsp-zero.nvim",
@@ -57,20 +59,23 @@ return require("packer").startup(function(use)
     }
 
     use {
-        "jose-elias-alvarez/null-ls.nvim",
-        config = function()
-            require("null-ls").setup({
-                sources = { require("null_ls").builtins.formatting.black }
-            })
-        end
-    }
-
-    use {
         "lewis6991/gitsigns.nvim",
         config = function()
             require("gitsigns").setup()
         end
     }
+
+    use "jose-elias-alvarez/null-ls.nvim"
+
+    use "mbbill/undotree"
+
+    use {
+        "mfussenegger/nvim-dap",
+        "mfussenegger/nvim-dap-python",
+        "rcarriga/nvim-dap-ui",
+    }
+
+    use "tpope/vim-fugitive"
 
     if packer_bootstrap then
         require("packer").sync()
